@@ -50,5 +50,3 @@ before_script:
 script:
  - py.test ..
 
-# force build
-# force build
