@@ -39,4 +39,12 @@ def test_large( dump_vcd ):
 # another test case to test for overflow. Later you will add a test case
 # for random testing.
 # '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+def test_overflow(dump_vcd):
+  run_test_vector_sim(RegIncr(), [
+    ('in_  out*'),
+    [0x00, '?'],
+    [0xfe, 0x01],
+    [0xff, 0xff],
+    [0x00, 0x00],
+  ], dump_vcd)
 

@@ -21,9 +21,12 @@ input_values.extend( [0]*3 )
 # before using the SimulationTool to create a simulator. Later in the
 # tutorial you will nee to add a line to enable VCD dumping.
 # ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+model = RegIncr()
+model.vcd_file = "regincr-sim.vcd"
+model.elaborate()
 
 # Reset simulator
-
+sim = SimulationTool(model)
 sim.reset()
 
 # Apply input values and display output values
@@ -40,8 +43,9 @@ for input_value in input_values:
   # replace this with a call to the simulator's print_line_trace method.
   # ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
-  print " cycle = {}: in = {}, out = {}" \
-    .format( sim.ncycles, model.in_, model.out )
+#  print " cycle = {}: in = {}, out ={}" \
+#    .format(sim.ncycles, model.in_, model.out)
+  sim.print_line_trace()
 
   # Tick simulator one cycle
 
